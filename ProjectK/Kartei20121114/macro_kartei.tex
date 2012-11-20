@@ -1,0 +1,194 @@
+% Macros for usage in the script
+
+% Dirac notation
+	\newcommand{\ket}[1]{\vert  #1 \rangle}
+	\newcommand{\bra}[1]{\langle #1 |}
+	\newcommand{\inprod}[2]{\langle #1 | #2 \rangle}
+	\newcommand{\proj}[2]{\ket{#1}\bra{#2}}
+	\newcommand{\pure}[1]{\proj{#1}{#1}}
+ 
+%Set
+	\newcommand{\set}[1]{\left\{ #1 \right\}}
+% Average
+	\newcommand{\avg}[1]{\langle #1 \rangle}
+
+% % Absolute value
+	\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+	\makeatletter
+	\let\oldabs\abs
+	\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+% % Hamiltonian
+	\newcommand{\h}[1]{\hat{H}_{#1}  }
+
+% % Probability
+    \newcommand{\sprob}[1]{\text{Prob}\left(#1\right)  }
+    
+% % Trace
+	\newcommand{\ttr}[1]{\mbox{Tr}\left(#1\right)  }
+    
+% % Endomorphism
+	\newcommand{\End}[1]{\mathrm{End}(#1)}
+
+% % Commutator
+	\newcommand{\commute}[2]{[#1, #2]}
+
+% % Vectors
+	\newcommand{\vect}[1]{\mathbf{#1}}
+	\renewcommand{\vec}[1]{\mathbf{#1}}
+	\newcommand{\vecop}[1]{\hat{\mathbf{#1}}}
+
+% Hilbert spaces
+	\newcommand{\hilbert}{\mathcal{H}}
+	\newcommand{\composed}{\mathcal{H}_A  \otimes \mathcal{H}_R}
+
+% Spinors (a bit of cheating)
+	\newcommand{\spinor}[2]{ {#1 \choose #2} }
+	\newcommand{\one}{\! \! \uparrow}
+	\newcommand{\zero}{\! \! \downarrow}
+	
+%Trace
+	\newcommand{\tr}{ \mbox{Tr}  }
+
+% Probability
+	%\newcommand{\prob}{\mathcal{P}}
+	%\newcommand{\prob}[1]{\mbox{Prob} \left[#1\right]}
+
+%Identity operator
+	\newcommand{\id}{\mathbbm{1}}
+	%\newcommand{\id}{id}
+	\newcommand{\cj}{Choi-Jamio\l{}kowski }
+
+%Set of unitaries
+	\newcommand{\UU}{\mathcal{U}}
+
+% Entropies
+	\newcommand{\hmin}{ H_{\min} }
+	\newcommand{\hmax}{ H_{\max} }  
+	\newcommand{\renyi}{R\' enyi }
+
+% Max eg value
+	\newcommand{\lmax}{ \lambda_{\max} }
+
+% Operators
+	\newcommand{\cnot}{\mbox{ CNOT }}
+	\newcommand{\rank}{\mbox{rank }}
+	\newcommand{\supp}{\operatorname{supp}}
+
+% Matrices
+	\newcommand{\matrixTwo}[1]{
+		\left( 
+			\begin{array}{c c}
+				#1
+			\end{array}
+		\right)
+		}
+	%melhora este:
+	\newcommand{\matrixN}[2]{
+		\left( 
+			\begin{array}{#1}
+				#2
+			\end{array}
+		\right)
+		}
+
+% Long probabilities
+	\newcommand{\prob}[2]{
+		\Pr_{#1}
+		\left\{
+			\begin{array}{l}
+				#2
+			\end{array}
+		\right\}
+		}
+
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\half}{\frac{1}{2}}
+
+%Sets and spaces
+\newcommand{\R}{\mathbbm{R}}
+\newcommand{\N}{\mathbbm{N}}
+%TPCPMs
+\newcommand*{\I}{\mathcal{I}}
+\newcommand*{\X}{\mathcal{X}}
+\newcommand*{\E}{\mathcal{E}}
+\newcommand*{\cM}{\mathcal{M}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\OO}[1]{\mathcal{O} \left( #1 \right) }
+% % \newcommand{\ham}{\mathcal{H}}
+
+
+% Partial derivatives
+\newcommand{\pd}[1]{ \frac{\partial}{\partial #1} }     %first derivative
+\newcommand{\pdd}[1]{ \frac{\partial^2}{\partial {#1}^2 } }   %second derivative
+
+%..................................
+
+% define boxed equations in all variants with package empheq with e.g. color blue:
+\definecolor{myblue}{rgb}{.8, .8, 1}
+
+\newlength\mytemplen
+\newsavebox\mytempbox
+\makeatletter
+\newcommand\mybluebox{%
+    \@ifnextchar[%]
+       {\@mybluebox}%
+       {\@mybluebox[0pt]}}
+
+\def\@mybluebox[#1]{%
+    \@ifnextchar[%]
+       {\@@mybluebox[#1]}%
+       {\@@mybluebox[#1][0pt]}}
+
+\def\@@mybluebox[#1][#2]#3{
+    \sbox\mytempbox{#3}%
+    \mytemplen\ht\mytempbox
+    \advance\mytemplen #1\relax
+    \ht\mytempbox\mytemplen
+    \mytemplen\dp\mytempbox
+    \advance\mytemplen #2\relax
+    \dp\mytempbox\mytemplen
+    \colorbox{myblue}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}
+\makeatother
+
+
+%..................................................
+
+% Colours
+	\newcommand{\red}[1]{\textcolor{Red}{#1}}
+	\newcommand{\blue}[1]{\textcolor{Blue}{#1}}
+	\newcommand{\green}[1]{\textcolor{OliveGreen}{#1}}
+	\newcommand{\pink}[1]{\textcolor{Magenta}{#1}}
+	\newcommand{\yellow}[1]{\textcolor{Yellow}{#1}}
+	\newcommand{\orange}[1]{\textcolor{Orange}{#1}}
+
+% Little things
+	\newcommand{\ie}{i.e., }
+	\newcommand{\etal}{et al.\ }
+	\newcommand{\fred}{Fr\' ed\' eric}
+	%\newcommand{\iid}{i.i.d.\  }
+
+%side note
+\newcommand{\flag}[1]{\green{ [#1]}}
+
+
+%.................................................
+
+% Referencing equations and figures
+	\newcommand{\eref}[1]{Eq.\ (\ref{#1})}
+	\newcommand{\fref}[1]{Fig.\ \ref{#1}}
+
+
+%.................................................
+
+% Tikz settings
+\tikzset{
+	% Feynman Diagrams
+	photon/.style={decorate, decoration={snake}},
+	% photondir/.style={decorate, decoration={snake}, segment amplitude=.8mm, segment length=4mm, line after s    nake=1.3mm, ->},
+    photondir/.style={decorate, decoration={snake}, -stealth},
+	fermion/.style={postaction={decorate},decoration={markings,mark=at position .55 with {\arrow{>}}}},
+	gluon/.style={decorate,decoration={coil,amplitude=4pt,segment length=5pt}},
+	boson/.style={dashed},
+}
+
