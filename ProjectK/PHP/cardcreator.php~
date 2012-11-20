@@ -30,7 +30,7 @@ exec('echo -e '\documentclass[
 \begin{karte}{'.$VARIABLE_QUEST.'}
 	'.$VARIABLE_ANSWER.'
 \end{karte}
-\end{document}' > '.$VARIABLE_FILENAME.'.tex');
+\end{document}" > '.$VARIABLE_FILENAME.'.tex');
 
 echo 'compiling tex file
 ';
