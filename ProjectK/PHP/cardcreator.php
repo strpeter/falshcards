@@ -17,20 +17,20 @@ $VARIABLE_FILENAME = 'test';
 echo 'writing tex file
 ';
 //create the card out of the dataset
-exec('echo -e "\\\documentclass[
+exec('echo -e '\documentclass[
 				% print,
 				a6paper,
 				% flip,
 				% grid=rear
 				]{kartei2}
-\\\begin{document}
-\\\cardsubject{'.$VARIABLE_LECTURE.'}
-\\\comment{'.$VARIABLE_SOURCE.','.$VARIABLE_DEVELOPER.'}
-\\\answer{Answer}
-\\\begin{karte}{'.$VARIABLE_QUEST.'}
+\begin{document}
+\cardsubject{'.$VARIABLE_LECTURE.'}
+\comment{'.$VARIABLE_SOURCE.','.$VARIABLE_DEVELOPER.'}
+\answer{Answer}
+\begin{karte}{'.$VARIABLE_QUEST.'}
 	'.$VARIABLE_ANSWER.'
-\\\end{karte}
-\\\end{document}" > '.$VARIABLE_FILENAME.'.tex');
+\end{karte}
+\end{document}" > '.$VARIABLE_FILENAME.'.tex');
 
 echo 'compiling tex file
 ';
