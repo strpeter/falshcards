@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+Add folder:
+<form action="{{ path('save_addfolder_form') }}" method="post">
+	Name: <input type="text" name="name"><br>
+	<input type="Submit">
+</form>
+{% endblock %}

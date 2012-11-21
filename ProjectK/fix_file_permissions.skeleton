@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Als root ausfuehren!"
+chgrp -R modurex *
+chown -R www-data *
+chmod g+rwx -R *
+chmod o-rwx -R *

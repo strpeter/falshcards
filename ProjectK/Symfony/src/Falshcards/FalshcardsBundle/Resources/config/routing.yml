@@ -1,0 +1,43 @@
+falshcards_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: FalshcardsBundle:Default:index }
+
+home:
+    pattern: /
+    defaults: { _controller: FalshcardsBundle:Card:home }
+
+show_addcard_form:
+    pattern:  /addcard
+    defaults: { _controller: FalshcardsBundle:Card:showAddCard }
+
+save_addcard_form:
+    pattern:  /saveaddcard
+    defaults: { _controller: FalshcardsBundle:Card:saveAddCard }
+    
+show_changecard_form:
+    pattern:  /card/{id_card}/change
+    defaults: { _controller: FalshcardsBundle:Card:showChangeCard }
+
+save_changecard_form:
+    pattern:  /card/{id_card}/savechange
+    defaults: { _controller: FalshcardsBundle:Card:saveChangeCard }
+
+show_addfolder_form:
+    pattern:  /addfolder
+    defaults: { _controller: FalshcardsBundle:Card:showAddFolder }
+
+save_addfolder_form:
+    pattern:  /saveaddfolder
+    defaults: { _controller: FalshcardsBundle:Card:saveAddFolder }
+
+show_folders:
+    pattern:  /folders
+    defaults: { _controller: FalshcardsBundle:Card:showFolders }
+    
+show_cards:
+    pattern:  /folder/{id_folder}/cards
+    defaults: { _controller: FalshcardsBundle:Card:showCards }
+
+export_card:
+    pattern:  /card/{id_card}/export
+    defaults: { _controller: FalshcardsBundle:Card:exportCard }

@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<h1>Karten im Ordner {{ folder.name }}</h1>
+
+{# gibt es ueberhaupt Karten? #}
+{% if cards|length > 0 %}
+<table>
+	<thead>
+		<tr><th></th><th>Question</th><th>Answer</th></tr>
+	</thead>
+	<tbody>
+	{% for card in cards %}
+		<tr><td><a href="{{ path('show_changecard_form', {'id_card': card.idcard}) }}">aendern</a></td><td>{{ card.question }}</td><td>{{ card.answer }}</td></tr>
+	{% endfor %}
+    </tbody>
+</table>
+{% else %}
+Keine Karten gefunden.
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+# Bootstrap
+Symfony/app/bootstrap*
+
+# Symfony directories
+Symfony/vendor/*
+Symfony/*/logs/*
+Symfony/*/cache/*
+Symfony/web/uploads/*
+Symfony/web/bundles/*
+
+# Backup files
+.DS_Store
+*~

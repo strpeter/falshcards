@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+Change card:
+<form action="{{ path('save_changecard_form', {'id_card': card.idcard}) }}" method="post">
+	Quest: <input type="text" name="question" value="{{ card.question }}"><br>
+	Answer: <input type="text" name="answer" value="{{ card.answer }}"><br>
+	Folder: <select name="folder">{% for folder in folders %}<option {% if card.ffolder.idfolder == folder.idfolder %}selected{% endif %} value="{{ folder.idfolder }}">{{ folder.name }}</option>{% endfor %}</select>
+	<input type="Submit">
+</form>
+{% endblock %}

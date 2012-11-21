@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+{# gibt es ueberhaupt ordner? #}
+{% if folders|length > 0 %}
+Add card:
+<form action="{{ path('save_addcard_form') }}" method="post">
+	Quest: <input type="text" name="question"><br>
+	Answer: <input type="text" name="answer"><br>
+	Folder: <select name="folder">{% for folder in folders %}<option value="{{ folder.idfolder }}">{{ folder.name }}</option>{% endfor %}</select>
+	<input type="Submit">
+</form>
+{% else %}
+Bitte zuerst einen Ordner hinzufuegen!
+{% endif %}
+{% endblock %}

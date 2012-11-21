@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<h1>Ordneruebersicht</h1>
+
+{# gibt es ueberhaupt Ordner? #}
+{% if folders|length > 0 %}
+<table>
+	<thead>
+		<tr><th></th><th>Name</th></tr>
+	</thead>
+	<tbody>
+	{% for folder in folders %}
+		<tr><td><a href="{{ path('show_cards', {'id_folder': folder.idfolder}) }}">Karten</a></td><td>{{ folder.name }}</td></tr>
+	{% endfor %}
+    </tbody>
+</table>
+{% else %}
+Keine Ordner gefunden.
+{% endif %}
+{% endblock %}

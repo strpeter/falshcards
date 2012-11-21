@@ -1,0 +1,7 @@
+parameters:
+#    falshcards.example.class: Falshcards\FalshcardsBundle\Example
+
+services:
+#    falshcards.example:
+#        class: %falshcards.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
