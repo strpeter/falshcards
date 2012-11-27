@@ -1,13 +1,17 @@
 # Bootstrap
-Symfony/app/bootstrap*
+ProjectK/Symfony/app/bootstrap*
 
 # Symfony directories
-Symfony/vendor/*
-Symfony/*/logs/*
-Symfony/*/cache/*
-Symfony/web/uploads/*
-Symfony/web/bundles/*
+ProjectK/Symfony/vendor/*
+ProjectK/Symfony/*/logs/*
+ProjectK/Symfony/*/cache/*
+ProjectK/Symfony/web/uploads/*
+ProjectK/Symfony/web/bundles/*
 
 # Backup files
 .DS_Store
 *~
+*.swp
+
+# auto-generated tex-files
+ProjectK/Symfony/web/tex/card.*
