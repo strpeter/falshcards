@@ -1,0 +1,250 @@
+% Macros for usage in the script
+
+%Dirac notation
+\newcommand{\ket}[1]{\vert  #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\inprod}[2]{\langle #1 | #2 \rangle}
+\newcommand{\proj}[2]{\ket{#1}\bra{#2}}
+\newcommand{\pure}[1]{\proj{#1}{#1}}
+
+%Average
+\newcommand{\avg}[1]{\langle #1 \rangle}
+
+%Absolute value
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+%Hamiltonian
+% \newcommand{\ham}{\mathcal{H}}
+\newcommand{\h}[1]{\hat{H}_{#1}}
+
+%Probability
+\newcommand{\sprob}[1]{\text{Prob}\left(#1\right)  }
+   
+%Trace
+\newcommand{\ttr}[1]{\mbox{Tr}\left(#1\right)  }
+    
+%Endomorphism
+\newcommand{\End}[1]{\mathrm{End}(#1)}
+
+%Commutator
+\newcommand{\commute}[2]{[#1, #2]}
+
+%Vectors
+\newcommand{\vect}[1]{\mathbf{#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\vecop}[1]{\hat{\mathbf{#1}}}
+
+%Hilbert spaces
+\newcommand*{\hil}{\mathcal{H}}
+\newcommand*{\composed}{\mathcal{H}_A\otimes\mathcal{H}_R}
+
+%Spinors (a bit of cheating)
+\newcommand{\spinor}[2]{ {#1 \choose #2} }
+\newcommand{\one}{\! \! \uparrow}
+\newcommand{\zero}{\! \! \downarrow}
+	
+%Trace
+\newcommand{\tr}{ \mbox{Tr}  }
+
+%Probability
+% \newcommand{\prob}{\mathcal{P}}
+% \newcommand{\prob}[1]{\mbox{Prob} \left[#1\right]}
+
+%Identity operator
+\newcommand{\id}{\mathbbm{1}}
+% \newcommand{\id}{id}
+\newcommand{\cj}{Choi-Jamio\l{}kowski }
+
+%Set of unitaries
+\newcommand{\UU}{\mathcal{U}}
+
+%Entropies
+\newcommand{\hmin}{ H_{\min} }
+\newcommand{\hmax}{ H_{\max} }  
+\newcommand{\renyi}{R\' enyi }
+
+%Max eg value
+\newcommand{\lmax}{ \lambda_{\max} }
+
+%Operators
+\newcommand{\cnot}{\mbox{ CNOT }}
+\newcommand{\rank}{\mbox{rank }}
+\DeclareMathOperator*{\supp}{supp}
+
+%Matrices
+% pmatrix, pmatrix* with usual brackets(.), vmatrix with determinant brackets|.|, Vmatrix with absolut value brackets||.||, bmatrix with [.], Bmatrix with {.}
+
+%Matrix probabilities
+\newcommand{\prob}[2]{
+	\Pr_{#1}
+	\left\{
+		\begin{array}{l}
+			#2
+		\end{array}
+	\right\}
+	}
+
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\half}{\frac{1}{2}}
+\newcommand*{\sqlf}{\frac{1}{\sqrt{2}}}
+
+
+%Sets and spaces
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\bbN}{\mathbbm{N}}
+\newcommand{\bbR}{\mathbbm{R}}
+\newcommand{\N}{\mathbbm{N}}
+\newcommand{\C}{\mathbbm{C}}
+
+%TPCPMs
+\newcommand*{\cA}{\mathcal{A}}
+\newcommand*{\cB}{\mathcal{B}}
+\newcommand*{\cC}{\mathcal{C}}
+\newcommand*{\cE}{\mathcal{E}}
+\newcommand*{\cF}{\mathcal{F}}
+\newcommand*{\cG}{\mathcal{G}}
+\newcommand*{\cH}{\mathcal{H}}
+\newcommand*{\cI}{\mathcal{I}}
+\newcommand*{\cL}{\mathcal{L}}
+\newcommand*{\cM}{\mathcal{M}}
+\newcommand*{\cS}{\mathcal{S}}
+\newcommand*{\cT}{\mathcal{T}}
+\newcommand*{\cX}{\mathcal{X}}
+\newcommand*{\cY}{\mathcal{Y}}
+\newcommand{\OO}[1]{\mathcal{O} \left( #1 \right) }
+
+%Channel coding
+\newcommand*{\enc}[1]{\operatorname{enc}_{#1}}
+\newcommand*{\dec}[1]{\operatorname{dec}_{#1}}
+\DeclareMathOperator*{\perr}{p_{err}}
+\newcommand*{\bp}{\mathbf{p}}
+\newcommand*{\rate}[1]{\operatorname{rate}_{#1}}
+%\newcommand*{\enc}{\mathrm{enc}}
+%\newcommand*{\dec}{\mathrm{dec}}
+%\newcommand*{\perr}{p_{\mathrm{err}}}
+\newcommand*{\rarrow}[1]{\raisebox{-1.1ex}{$\overrightarrow{\makebox[5em]{\vphantom{X}$#1$}}$}}
+
+% Partial derivatives
+\newcommand{\pd}[1]{ \frac{\partial}{\partial #1} }     %first derivative
+\newcommand{\pdd}[1]{ \frac{\partial^2}{\partial {#1}^2 } }   %second derivative
+
+%..................................
+
+% Theorems 
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+
+\newtheorem{prop}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+%..................................
+
+% define boxed equations in all variants with package empheq with e.g. color blue:
+\definecolor{myblue}{rgb}{.8, .8, 1}
+
+\newlength\mytemplen
+\newsavebox\mytempbox
+\makeatletter
+\newcommand\mybluebox{%
+    \@ifnextchar[%]
+       {\@mybluebox}%
+       {\@mybluebox[0pt]}}
+
+\def\@mybluebox[#1]{%
+    \@ifnextchar[%]
+       {\@@mybluebox[#1]}%
+       {\@@mybluebox[#1][0pt]}}
+
+\def\@@mybluebox[#1][#2]#3{
+    \sbox\mytempbox{#3}%
+    \mytemplen\ht\mytempbox
+    \advance\mytemplen #1\relax
+    \ht\mytempbox\mytemplen
+    \mytemplen\dp\mytempbox
+    \advance\mytemplen #2\relax
+    \dp\mytempbox\mytemplen
+    \colorbox{myblue}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}
+\makeatother
+
+
+%..................................................
+
+% Colours
+\newcommand{\red}[1]{\textcolor{Red}{#1}}
+\newcommand{\blue}[1]{\textcolor{Blue}{#1}}
+\newcommand{\green}[1]{\textcolor{OliveGreen}{#1}}
+\newcommand{\pink}[1]{\textcolor{Magenta}{#1}}
+\newcommand{\yellow}[1]{\textcolor{Yellow}{#1}}
+\newcommand{\orange}[1]{\textcolor{Orange}{#1}}
+
+% Little things
+\newcommand*{\ie}{i.e., }
+\newcommand*{\etal}{et al.\ }
+\newcommand*{\iid}{i.i.d.\ }
+
+%side note
+\newcommand{\flag}[1]{\green{ [#1]}}
+
+%margin note
+\newcommand{\Note}[1]{\marginpar{#1}}
+
+%.................................................
+
+% Referencing equations and figures
+\newcommand{\eref}[1]{Eq.\ (\ref{#1})}
+\newcommand{\fref}[1]{Fig.\ \ref{#1}}
+
+%little figure for  "where on earth did that come from?" or "g, does this feel like reading someone else's code..."
+% \newcommand{\alien}{\includegraphics[width=20pt]{fig/aliencode.jpg}\ }
+%updated version of the logo
+\newcommand{\alien}[1][3]{%
+	\enspace
+	\begin{tikzpicture}[scale=#1/20 pt]
+		\useasboundingbox (-1,-1) rectangle (1,1);
+		\draw (0,0) circle (1) [fill=blue!10];
+		\filldraw	(-.5, .2) circle	(.1);
+		\draw		(-.5, .3) circle	(.4);
+		\filldraw	( .5, .2) circle	(.1);
+		\draw		( .5, .3) circle	(.4);
+		\draw		(-.1, .3) --		( .1, .3);
+		\draw 		(-.3,-.55) .. controls (0.1,-.4) .. (.3,-.45);
+	\end{tikzpicture}
+  	\enspace
+  	}
+
+%little logo for approximation alert
+% \newcommand{\alert}{\includegraphics[width=20pt]{fig/approximationalert.jpg} \ }
+%updated version of the logo
+\newcommand{\alert}[1][3]{%
+	\enspace
+	\begin{tikzpicture}[scale=#1/10 pt]
+    	\filldraw[fill=green!10]	(0,0) ellipse (.9 and .5);
+		\foreach \x/\y in {0/-.3,.7/-.3}
+			\draw[cap=round,smooth,thick] (-.6 + \x,\y) -- (-.2 + \x,\y + .6) -- (-.1 + \x,\y) (-.465 + \x,\y + .2) -- (-.14 + \x,\y + .2);
+% 		\node [red] at (0,0) {\sffamily \bfseries \itshape \scriptsize AA};
+	\end{tikzpicture}
+  	\enspace
+  	}
+
+%.................................................
+
+% Tikz settings
+\tikzset{
+	% Feynman Diagrams
+	photon/.style={decorate, decoration={snake}},
+	% photondir/.style={decorate, decoration={snake}, segment amplitude=.8mm, segment length=4mm, line after s    nake=1.3mm, ->},
+    photondir/.style={decorate, decoration={snake}, -stealth},
+	fermion/.style={postaction={decorate},decoration={markings,mark=at position .55 with {\arrow{>}}}},
+	gluon/.style={decorate,decoration={coil,amplitude=4pt,segment length=5pt}},
+	boson/.style={dashed},
+}
+
