@@ -159,7 +159,7 @@ class CardController extends Controller
 		fclose($fh);
 		
 		// tex datei kompilieren
-		$response = exec('pdftex '.$tex_path.$tex_file.'.tex');
+		$response = exec('pdflatex '.$tex_path.$tex_file.'.tex');
 		
 		// existiert das PDF-file?
 		if (file_exists($tex_path.$pdf_file)) {
