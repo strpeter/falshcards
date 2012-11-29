@@ -407,24 +407,3 @@
 %
 \tikzset{front grid/.style={very thin, gray}}
 \tikzset{rear grid/.style={very thin, gray, loosely dashed}}
-%
-%
-%
-%
-\RequirePackage[utf8]{inputenc} %UTF8
-\RequirePackage[T1]{fontenc}
-\RequirePackage[scaled]{helvet}
-\RequirePackage[english]{babel}
-%
-\RequirePackage{graphicx}
-\RequirePackage{amssymb}
-\RequirePackage{amsmath}
-\RequirePackage{amsthm}
-\RequirePackage{array}							%for tabular (figure side by side text)
-\RequirePackage{mathtools}
-\RequirePackage{cases}							%allows to separate different cases ;)
-%\RequirePackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\RequirePackage{bbm}								% provides nice formatting of C,R,Q,id, etc.
-%
-% Some additional macros:
-\input{macro_kartei}
