@@ -143,23 +143,23 @@ class CardController extends Controller
 		// $base_path zeigt auf Symfony/web
 		$base_path = $this->get('kernel')->getRootDir();;
 		$tex_path = $base_path.'/../web/tex/';
-		$tex_file = 'card.tex';
+		$tex_file = 'card'; //remember you add '.tex' below!!!
 		$pdf_file = 'card.pdf';
 		$log_file = 'card.log';
 		
 		// tex, pdf und log dateien loeschen
-		if (file_exists($tex_path.$tex_file)) unlink($tex_path.$tex_file);
+		if (file_exists($tex_path.$tex_file.'.tex')) unlink($tex_path.$tex_file.'.tex');
 		if (file_exists($tex_path.$pdf_file)) unlink($tex_path.$pdf_file);
 		if (file_exists($tex_path.$log_file)) unlink($tex_path.$log_file);
 		
 		// tex-datei schreiben
-		$fh = fopen($tex_path.$tex_file, 'w') or die("can't open file");
+		$fh = fopen($tex_path.$tex_file.'.tex', 'w') or die("can't open file");
 		$tex = $this->renderView('FalshcardsBundle:Card:export.tex.twig');
 		fwrite($fh, $tex);
 		fclose($fh);
 		
 		// tex datei kompilieren
-		$response = exec('pdflatex '.$tex_path.$tex_file.'.tex');
+		$response = exec('cd '.$tex_path.'; pdflatex '.$tex_file.'.tex');
 		
 		// existiert das PDF-file?
 		if (file_exists($tex_path.$pdf_file)) {
