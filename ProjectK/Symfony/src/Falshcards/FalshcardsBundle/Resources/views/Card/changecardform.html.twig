@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends 'FalshcardsBundle::base.html.twig' %}
 
-{% block body %}
+{% block content %}
 Change card:
 <form action="{{ path('save_changecard_form', {'id_card': card.idcard}) }}" method="post">
 	Quest: <input type="text" name="question" value="{{ card.question }}"><br>
