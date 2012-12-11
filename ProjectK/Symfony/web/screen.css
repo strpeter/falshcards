@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	text-align: center;	/* Zentrierung für IE */
+	background: url(bilder/background_page.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	padding: 0 20px;
+}
+* html body {
+	font-size: small;	/* Schriftgrösse für IE5 Win */
+}
+h1 {
+	font-size: 160%;
+}
+h2 {
+	font-size: 145%;
+}
+h3 {
+	font-size: 130%;
+}
+h4 {
+	font-size: 120%;
+}
+/* positioning-layers static and absolute */
+#main {
+	width: 797px;
+	text-align: left; /* Ausrichtung für Seitentext */
+	margin-left: auto;	/* bewirkt Zentierung der Seite */
+	margin-right: auto;
+	background-color: #DDD;
+}
+#menu {
+	position: absolute;
+	width: 200px;
+	left: 20px;
+	background-color: #ff99CC;
+	padding: 0;
+	margin: 0;
+}
+#content {
+	margin-left: 200px;
+	background-color: #fff;
+	overflow: auto;
+}
+#text {
+	padding: 0 15px 5px 15px;
+	margin: 0 0 0 120px;
+	background-color: #CCC;
+	border-left: 1px solid #369;
+	border-right: 1px solid #369;
+	border-top: 1px solid white;
+}
+#text h1 {
+	padding: 25px 0 10px 0;
+	border-bottom: 1px dotted #369;
+}
+#text p {
+	padding: 5px 0 0 0;
+}
+#footer {
+	clear: both;
+	text-align: center;
+	padding: 5px;
+	border-top: 1px solid white;
+}
+#footer a {
+	color: white;
+}
