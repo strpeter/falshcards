@@ -30,16 +30,26 @@ h4 {
 	text-align: left; /* Ausrichtung für Seitentext */
 	margin-left: auto;	/* bewirkt Zentierung der Seite */
 	margin-right: auto;
-	background-color: #DDD;
 }
 #menu {
 	position: fixed;
+	left: 10px;
 	min-width: 200px;
 	width: 20%;
-	left: 20px;
-	background-color: #ff99CC;
-	padding: 0;
-	margin: 0;
+}
+#menu ul {
+	list-style: none;
+}
+#menu ul li a {
+	display: block;
+	padding 4px 8px;
+	background-color: #369;
+	color: #FFF;
+	font-size: 14px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: white #369 #369 white;
+	text-decoration: none;
 }
 #content {
 	min-width: 500px;

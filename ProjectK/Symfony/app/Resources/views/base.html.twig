@@ -8,12 +8,9 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('screen.css') }}" media="screen" />
     </head>
     <body>
-	<div id="menu">
-		<ul>
-			<li><a href="Reference">Link</a></li>
-		</ul>
+	<div id="main">
+        	{% block body %}{% endblock %}
+        	{% block javascripts %}{% endblock %}
 	</div>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
 </html>
