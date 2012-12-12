@@ -33,19 +33,24 @@ h4 {
 	background-color: #DDD;
 }
 #menu {
-	position: absolute;
-	width: 200px;
+	position: fixed;
+	min-width: 200px;
+	width: 20%;
 	left: 20px;
 	background-color: #ff99CC;
 	padding: 0;
 	margin: 0;
 }
 #content {
+	min-width: 500px;
+	width: 70%;
 	margin-left: 200px;
 	background-color: #fff;
 	overflow: auto;
 }
 #text {
+	min-width: 500px;
+	width: 70%;
 	padding: 0 15px 5px 15px;
 	margin: 0 0 0 120px;
 	background-color: #CCC;
