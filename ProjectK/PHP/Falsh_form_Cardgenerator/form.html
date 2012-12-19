@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Flashcard generator</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+
+</head>
+<body id="main_body" >
+	<div id="form_container">
+		<h1><a>Flashcard generator</a></h1>
+		<form action="cardcreator.php">
+			<div class="form_description">
+				<h2>Flashcard generator</h2>
+				<p>This template generates the flashcard of your choice.</p>
+			</div>						
+			<ul >
+				<li id="li_3" >
+					<label class="description" for="element_3">Choose the corresponding lecture </label>
+					<div>
+						<select class="element select large" id="element_3" name="element_3"> 
+							<option value="" selected="selected"></option>
+							<option value="1" >Lecture 1</option>
+							<option value="2" >Lecture 2</option>
+							<option value="3" >Lecture 3</option>
+						</select>
+					</div> 
+				</li>
+				<li id="li_1" >
+					<label class="description" for="element_1">Question or task </label>
+					<div>
+						<textarea id="element_1" name="element_1" class="element textarea small"></textarea> 
+					</div> 
+				</li>
+				<li id="li_2" >
+					<label class="description" for="element_2">Answer </label>
+					<div>
+						<textarea id="element_2" name="element_2" class="element textarea large"></textarea> 
+					</div> 
+				</li>
+				<li class="buttons">
+					<input type="hidden" name="form_id" value="540490" />
+					<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+				</li>
+			</ul>
+		</form>	
+	</div>
+</body>
+</html>
