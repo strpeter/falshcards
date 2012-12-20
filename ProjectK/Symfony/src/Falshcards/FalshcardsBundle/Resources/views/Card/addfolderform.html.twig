@@ -1,9 +1,9 @@
 {% extends 'FalshcardsBundle::base.html.twig' %}
 
 {% block content %}
-Add folder:
+<h1>Ordner hinzuf&uumlgen</h1>
 <form action="{{ path('save_addfolder_form') }}" method="post">
-	Name: <input type="text" name="name"><br>
+	<p>Ordnername:</p> <input type="text" name="name"><br>
 	<input type="Submit">
 </form>
 {% endblock %}

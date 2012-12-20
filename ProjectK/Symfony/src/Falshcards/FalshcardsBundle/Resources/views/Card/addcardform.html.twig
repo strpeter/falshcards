@@ -3,14 +3,23 @@
 {% block content %}
 {# gibt es ueberhaupt ordner? #}
 {% if folders|length > 0 %}
-Add card:
+<h1>Karte hinzuf&uumlgen</h1>
 <form action="{{ path('save_addcard_form') }}" method="post">
-	Quest: <input type="text" name="question"><br>
-	Answer: <input type="text" name="answer"><br>
-	Folder: <select name="folder">{% for folder in folders %}<option value="{{ folder.idfolder }}">{{ folder.name }}</option>{% endfor %}</select>
+	<p>Fragestellung:</p> 
+	<textarea name="question" rows="10" cols="50"></textarea><br>
+	<p>Antwort:</p>
+	<textarea name="answer" rows="20" cols="50"></textarea><br>
+	<p>Ordner:</p>
+	<select name="folder">
+		{% for folder in folders %}
+		<option value="{{ folder.idfolder }}">
+			{{ folder.name }}
+		</option>
+		{% endfor %}
+	</select>
 	<input type="Submit">
 </form>
 {% else %}
-Bitte zuerst einen Ordner hinzufuegen!
+Bitte zuerst einen Ordner hinzuf&uumlgen!
 {% endif %}
 {% endblock %}

@@ -54,19 +54,28 @@ h4 {
 #content {
 	min-width: 500px;
 	width: 70%;
-	margin-left: 200px;
+	padding: 15px 15px 15px 15px;
+	margin: 15px 15px 15px 120px;
 	background-color: #fff;
 	overflow: auto;
 }
 #text {
 	min-width: 500px;
 	width: 70%;
-	padding: 0 15px 5px 15px;
-	margin: 0 0 0 120px;
+	padding: 15px 15px 15px 15px;
+	margin: 15px 15px 15px 120px;
 	background-color: #CCC;
 	border-left: 1px solid #369;
 	border-right: 1px solid #369;
 	border-top: 1px solid white;
+	overflow: auto;
+}
+textarea {
+	margin: 15px 15px 15px 15px;
+	padding: 5px;
+	background-color: #CBC;
+	font-family: monospace, sans-serif;
+	overflow: auto;
 }
 #text h1 {
 	padding: 25px 0 10px 0;
