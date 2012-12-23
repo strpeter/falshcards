@@ -12,7 +12,7 @@
 	<p>Ordner:</p>
 	<select name="folder">
 		{% for folder in folders %}
-		<option value="{{ folder.idfolder }}">
+		<option value="{{ folder.idfolder }}" {% if idfolder is not null %}{% if folder.idfolder == idfolder %}selected{% endif %}{% endif %}>
 			{{ folder.name }}
 		</option>
 		{% endfor %}

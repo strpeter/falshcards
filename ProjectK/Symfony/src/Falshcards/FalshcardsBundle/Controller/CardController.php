@@ -20,7 +20,16 @@ class CardController extends Controller
 	public function showAddCardAction() {
 		// alle Ordner aus der Datenbank holen
 		$folders = $this->getDoctrine()->getRepository('FalshcardsBundle:Folder')->findAll();
-        return $this->render('FalshcardsBundle:Card:addcardform.html.twig', array('folders' => $folders));
+
+        // wurde ein 'folder' als GET Argument übergeben? (z.B. mit http://10.0.1.43/falshcards/ProjectK/Symfony/web/app_dev.php/falshcards/addcard?folder=3)
+        $idfolder = null;
+        if ($this->getRequest()->query->has('folder')) {
+            // falls das 'folder' Argument eine positive Ganzzahl (Integer) ist..
+            if (filter_var($this->getRequest()->query->get('folder'), FILTER_VALIDATE_INT, array('options' => array('min_range' => 1)))) {
+                $idfolder = $this->getRequest()->query->get('folder');
+            }
+        }
+        return $this->render('FalshcardsBundle:Card:addcardform.html.twig', array('folders' => $folders, 'idfolder' => $idfolder));
 	}
 	
 	// speichert die hinzugefuegte Karte in der DB
@@ -48,7 +57,7 @@ class CardController extends Controller
 			$em->flush();
 			
 			// vielen dank anzeigen
-			return $this->render('FalshcardsBundle:Card:addcardform-dank.html.twig');
+			return $this->render('FalshcardsBundle:Card:addcardform-dank.html.twig', array('idfolder' => $folder->getIdfolder()));
 		} else {
 			// wenn nein -> fehler!
 			trigger_error('Das muss mit einem HTTP POST aufgerufen werden!');
@@ -126,7 +135,7 @@ class CardController extends Controller
 			$em->flush();
 			
 			// vielen dank anzeigen
-			return $this->render('FalshcardsBundle:Card:addfolderform-dank.html.twig');
+			return $this->render('FalshcardsBundle:Card:addfolderform-dank.html.twig', array('idfolder' => $folder->getIdfolder()));
 		} else {
 			// wenn nein -> fehler!
 			trigger_error('Das muss mit einem HTTP POST aufgerufen werden!');
