@@ -1,7 +1,7 @@
 {% extends 'FalshcardsBundle::base.html.twig' %}
 
 {% block content %}
-<h1>Karte &aumlnderen</h1>
+<h1>Karte ändern</h1>
 <form action="{{ path('save_changecard_form', {'id_card': card.idcard}) }}" method="post">
 	<p>Fragestellung:</p> 
 	<textarea name="question" rows="10" cols="50">{{ card.question }}</textarea><br>

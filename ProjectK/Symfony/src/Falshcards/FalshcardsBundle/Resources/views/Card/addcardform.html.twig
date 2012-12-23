@@ -1,9 +1,9 @@
 {% extends 'FalshcardsBundle::base.html.twig' %}
 
 {% block content %}
-{# gibt es ueberhaupt ordner? #}
+{# gibt es überhaupt Ordner? #}
 {% if folders|length > 0 %}
-<h1>Karte hinzuf&uumlgen</h1>
+<h1>Karte hinzufügen</h1>
 <form action="{{ path('save_addcard_form') }}" method="post">
 	<p>Fragestellung:</p> 
 	<textarea name="question" rows="10" cols="50"></textarea><br>
@@ -20,6 +20,6 @@
 	<input type="Submit">
 </form>
 {% else %}
-Bitte zuerst einen Ordner hinzuf&uumlgen!
+Bitte zuerst einen Ordner hinzufügen!
 {% endif %}
 {% endblock %}

@@ -3,15 +3,15 @@
 {% block content %}
 <h1>Karten im Ordner {{ folder.name }}</h1>
 
-{# gibt es ueberhaupt Karten? #}
+{# gibt es überhaupt Karten? #}
 {% if cards|length > 0 %}
 <table>
 	<thead>
-		<tr><th></th><th>Question</th><th>Answer</th></tr>
+		<tr><th></th><th>Frage</th><th>Antwort</th></tr>
 	</thead>
 	<tbody>
 	{% for card in cards %}
-		<tr><td><a href="{{ path('show_changecard_form', {'id_card': card.idcard}) }}">aendern</a></td><td>{{ card.question }}</td><td>{{ card.answer }}</td></tr>
+		<tr><td><a href="{{ path('show_changecard_form', {'id_card': card.idcard}) }}">ändern</a></td><td>{{ card.question }}</td><td>{{ card.answer }}</td></tr>
 	{% endfor %}
     </tbody>
 </table>
