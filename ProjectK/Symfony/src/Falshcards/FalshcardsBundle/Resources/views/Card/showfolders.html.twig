@@ -7,11 +7,11 @@
 {% if folders|length > 0 %}
 <table>
 	<thead>
-		<tr><th></th><th>Name</th></tr>
+		<tr><th></th><th></th><th>Name</th></tr>
 	</thead>
 	<tbody>
 	{% for folder in folders %}
-		<tr><td><a href="{{ path('show_cards', {'id_folder': folder.idfolder}) }}">Karten</a></td><td>{{ folder.name }}</td></tr>
+		<tr><td><a href="{{ path('show_cards', {'id_folder': folder.idfolder}) }}">Karten</a></td><td><a href="{{ path('export_cards', {'id_folder': folder.idfolder }) }}">exportieren</a></td><td>{{ folder.name }}</td></tr>
 	{% endfor %}
     </tbody>
 </table>

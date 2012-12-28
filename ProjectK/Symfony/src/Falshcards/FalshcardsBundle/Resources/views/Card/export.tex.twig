@@ -3,7 +3,11 @@
 \cardsubject{ORDNERNAME}
 \comment{FALSHCARDS, FALSHCARD-DEVELOPER}
 \answer{Answer}
-\begin{karte}{QUESTION}
-	ANSWER
+
+{% for card in cards %}
+\begin{karte}{{ '{'~card.question~'}' }} {# weil '{{' Twig-Syntax ist #}
+    {{ card.answer }}
 \end{karte}
+{% endfor %}
+
 \end{document}

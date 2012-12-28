@@ -1,7 +1,3 @@
-falshcards_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: FalshcardsBundle:Default:index }
-
 home:
     pattern: /
     defaults: { _controller: FalshcardsBundle:Card:home }
@@ -38,6 +34,6 @@ show_cards:
     pattern:  /folder/{id_folder}/cards
     defaults: { _controller: FalshcardsBundle:Card:showCards }
 
-export_card:
-    pattern:  /card/{id_card}/export
+export_cards:
+    pattern:  /folder/{id_folder}/export
     defaults: { _controller: FalshcardsBundle:Card:exportCard }

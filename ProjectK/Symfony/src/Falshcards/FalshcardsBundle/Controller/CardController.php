@@ -161,24 +161,32 @@ class CardController extends Controller
 		return $this->render('FalshcardsBundle:Card:showcards.html.twig', array('folder' => $folder, 'cards' => $cards));
 	}
 	
-	// exportiert die Karte als PDF
-	public function exportCardAction($id_card) {
-		// $base_path zeigt auf Symfony/web
+	// exportiert einen Ordner als PDF
+	public function exportCardAction($id_folder) {
+		// $base_path zeigt auf Symfony/web im lokalen (=Server) Dateisystem
 		$base_path = $this->get('kernel')->getRootDir();;
 		$tex_path = $base_path.'/../web/tex/';
-		$tex_file = $_SERVER["REMOTE_ADDR"];
+
+        // der Dateinamen besteht aus IP und einer Randomzahl durch SHA1 gelassen
+		$tex_file = sha1($this->getRequest()->server->get('REMOTE_ADDR').rand());
 		$pdf_file = $tex_file.'.pdf';
 		$log_file = $tex_file.'.log';
-		
 		
 		// tex, pdf und log dateien loeschen
 		if (file_exists($tex_path.$tex_file.'.tex')) unlink($tex_path.$tex_file.'.tex');
 		if (file_exists($tex_path.$pdf_file)) unlink($tex_path.$pdf_file);
 		if (file_exists($tex_path.$log_file)) unlink($tex_path.$log_file);		
 
+        // alle Karten zum Ordner aus der Datenbank holen
+        $cards = $this->getDoctrine()->getRepository('FalshcardsBundle:Card')->findBy(array('ffolder' => $id_folder));
+        // wurden überhaupt Karten gefunden?
+        if (!$cards) {
+            trigger_error('Keine Karten in diesem Ordner gefunden!');
+        }
+
 		// tex-datei schreiben
 		$fh = fopen($tex_path.$tex_file.'.tex', 'w') or die("can't open file");
-		$tex = $this->renderView('FalshcardsBundle:Card:export.tex.twig');
+		$tex = $this->renderView('FalshcardsBundle:Card:export.tex.twig', array('cards' => $cards));
 		fwrite($fh, $tex);
 		fclose($fh);
 		
@@ -189,7 +197,7 @@ class CardController extends Controller
 		if (file_exists($tex_path.$pdf_file)) {
 			return $this->redirect($this->get('request')->getBasePath().'/tex/'.$pdf_file);
 		} else {
-			trigger_error('Fehler beim Kompilieren des Tex-Files!');
+			trigger_error("\n\nFehler beim Kompilieren des Tex-Files! Das Tex-File liegt hier:\n\n http://".$this->getRequest()->getHttpHost().$this->getRequest()->getBasePath()."/tex/".$tex_file.".tex\n\n");
 		}
 	}
 }
