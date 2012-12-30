@@ -167,7 +167,7 @@ class CardController extends Controller
 		$base_path = $this->get('kernel')->getRootDir();;
 		$tex_path = $base_path.'/../web/tex/';
 
-        // der Dateinamen besteht aus IP und einer Randomzahl durch SHA1 gelassen
+		// der Dateinamen besteht aus IP und einer Randomzahl durch SHA1 gelassen
 		$tex_file = sha1($this->getRequest()->server->get('REMOTE_ADDR').rand());
 		$pdf_file = $tex_file.'.pdf';
 		$log_file = $tex_file.'.log';
@@ -191,13 +191,14 @@ class CardController extends Controller
 		fclose($fh);
 		
 		// tex datei kompilieren
-		$response = exec('cd '.$tex_path.'; pdflatex '.$tex_file.'.tex > test.txt');
+		$response = exec('cd '.$tex_path.'; pdflatex '.$tex_file.'.tex > error.txt');
 		
 		// existiert das PDF-file?
 		if (file_exists($tex_path.$pdf_file)) {
 			return $this->redirect($this->get('request')->getBasePath().'/tex/'.$pdf_file);
 		} else {
-			trigger_error("\n\nFehler beim Kompilieren des Tex-Files! Das Tex-File liegt hier:\n\n http://".$this->getRequest()->getHttpHost().$this->getRequest()->getBasePath()."/tex/".$tex_file.".tex\n\n");
+			//Zeige die Datei ProjectK/Symfony/web/error.txt als plaintext
+			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => $tex_path.'errorlog.txt'));
 		}
 	}
 }

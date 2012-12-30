@@ -1,0 +1,9 @@
+{% extends 'FalshcardsBundle::base.html.twig' %}
+
+{% block content %}
+<h1>Fehler aufgetreten</h1>
+<p>Folgender Text ist die produzierte log-Datei:</p>
+<p class=code>
+	{{ path(errorlog) }}
+</p>
+{% endblock %}
