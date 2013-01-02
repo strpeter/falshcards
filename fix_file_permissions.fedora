@@ -1,0 +1,2 @@
+sudo chown -R apache.apache *
+sudo chmod -R g+rwx *

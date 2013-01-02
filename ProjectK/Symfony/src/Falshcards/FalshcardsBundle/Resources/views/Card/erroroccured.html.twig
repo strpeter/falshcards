@@ -3,7 +3,11 @@
 {% block content %}
 <h1>Fehler aufgetreten</h1>
 <p>Folgender Text ist die produzierte log-Datei:</p>
-<p class=code>
-	{{ path(errorlog) }}
+<p style="color: red">
+	{% if errorlog|length == 0 %}
+		error.txt ist leer!
+	{% else %}
+		{{ errorlog }}
+	{% endif %}
 </p>
 {% endblock %}

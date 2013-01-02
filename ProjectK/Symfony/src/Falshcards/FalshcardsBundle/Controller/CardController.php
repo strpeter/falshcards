@@ -198,7 +198,7 @@ class CardController extends Controller
 			return $this->redirect($this->get('request')->getBasePath().'/tex/'.$pdf_file);
 		} else {
 			//Zeige die Datei ProjectK/Symfony/web/error.txt als plaintext
-			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => $tex_path.'errorlog.txt'));
+			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => file_get_contents($tex_path.'error.txt')));
 		}
 	}
 }
