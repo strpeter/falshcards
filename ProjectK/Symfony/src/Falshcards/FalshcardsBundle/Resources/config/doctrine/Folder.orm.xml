@@ -4,6 +4,6 @@
 		<id name="idfolder" type="integer" column="idfolder">
 			<generator strategy="IDENTITY" />
 		</id>
-		<field name="name" column="name" type="string" length="255" />
+		<field name="name" column="name" type="string" length="8192" />
 	</entity>
 </doctrine-mapping>
