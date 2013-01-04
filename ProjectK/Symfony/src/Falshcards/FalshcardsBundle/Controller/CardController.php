@@ -184,9 +184,15 @@ class CardController extends Controller
             trigger_error('Keine Karten in diesem Ordner gefunden!');
         }
 
+		// ordner aus der DB holen
+		$folder = $this->getDoctrine()->getRepository('FalshcardsBundle:Folder')->find($id_folder);
+		if (!$folder) {
+			trigger_error('Ordner nicht gefunden!');
+		}
+		
 		// tex-datei schreiben
 		$fh = fopen($tex_path.$tex_file.'.tex', 'w') or die("can't open file");
-		$tex = $this->renderView('FalshcardsBundle:Card:export.tex.twig', array('cards' => $cards));
+		$tex = $this->renderView('FalshcardsBundle:Card:export.tex.twig', array('cards' => $cards, 'folder' => $folder));
 		fwrite($fh, $tex);
 		fclose($fh);
 		
