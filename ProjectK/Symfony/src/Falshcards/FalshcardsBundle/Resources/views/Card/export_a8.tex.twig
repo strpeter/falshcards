@@ -1,0 +1,16 @@
+\documentclass[a8paper]{kartei2}
+% load general stuff:
+\input{macros}
+%
+\begin{document}
+\cardsubject{{ '{'~folder.name~'}' }}
+\comment{falshcards}
+\answer{Answer}
+
+{% for card in cards %}
+\begin{karte}{{ '{'~card.question~'}' }} {# weil '{{' Twig-Syntax ist #}
+    {{ card.answer }}
+\end{karte}
+{% endfor %}
+
+\end{document}

@@ -192,19 +192,19 @@ class CardController extends Controller
 		
 		// tex-datei schreiben
 		$fh = fopen($tex_path.$tex_file.'.tex', 'w') or die("can't open file");
-		$tex = $this->renderView('FalshcardsBundle:Card:export.tex.twig', array('cards' => $cards, 'folder' => $folder));
+		$tex = $this->renderView('FalshcardsBundle:Card:export_a6print.tex.twig', array('cards' => $cards, 'folder' => $folder));
 		fwrite($fh, $tex);
 		fclose($fh);
 		
 		// tex datei kompilieren
-		$response = exec('cd '.$tex_path.'; pdflatex '.$tex_file.'.tex > error.txt');
+		$response = exec('cd '.$tex_path.'; pdflatex '.$tex_file.'.tex');
 		
 		// existiert das PDF-file?
 		if (file_exists($tex_path.$pdf_file)) {
 			return $this->redirect($this->get('request')->getBasePath().'/tex/'.$pdf_file);
 		} else {
-			//Zeige die Datei ProjectK/Symfony/web/error.txt als plaintext
-			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => file_get_contents($tex_path.'error.txt')));
+			//Zeige die log-Datei als plaintext
+			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => file_get_contents($tex_path.$tex_file.'.log')));
 		}
 	}
 }
