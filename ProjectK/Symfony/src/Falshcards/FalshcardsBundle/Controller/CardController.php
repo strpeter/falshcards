@@ -204,7 +204,10 @@ class CardController extends Controller
 			return $this->redirect($this->get('request')->getBasePath().'/tex/'.$pdf_file);
 		} else {
 			//Zeige die log-Datei als plaintext
-			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => file_get_contents($tex_path.$tex_file.'.log')));
+			return $this->render('FalshcardsBundle:Card:erroroccured.html.twig', array('errorlog' => file_get_contents($tex_path.$log_file)));
 		}
+		
+		// wait some time and then delete all the created files...
+		$response = exec('sleep 600; cd '.$tex_path.'; rm '.$tex_file.'*');
 	}
 }
