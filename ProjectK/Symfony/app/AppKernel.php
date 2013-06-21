@@ -36,4 +36,12 @@ class AppKernel extends Kernel
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
+    
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new FOS\UserBundle\FOSUserBundle(),
+        );
+    }
 }
