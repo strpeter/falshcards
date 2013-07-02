@@ -3,10 +3,8 @@
 	padding: 0;
 }
 body {
-	text-align: center;	/* Zentrierung für IE */
 	background: url(bilder/background_page.gif);
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: small;
 	padding: 0 20px;
 }
 * html body {
@@ -26,21 +24,18 @@ h4 {
 }
 /* positioning-layers static and absolute */
 #main {
-	width: 797px;
 	text-align: left; /* Ausrichtung für Seitentext */
-	margin-left: auto;	/* bewirkt Zentierung der Seite */
-	margin-right: auto;
 }
 #menu {
-	position: fixed;
-	left: 10px;
-	min-width: 200px;
-	width: 20%;
+	position: absolute;
+	top: 5em;
+	left: 1em;
+	width: 14em;
 }
 #menu ul {
 	list-style: none;
 }
-#menu ul li a {
+#menu li {
 	display: block;
 	padding 4px 8px;
 	background-color: #369;
@@ -51,13 +46,24 @@ h4 {
 	border-color: white #369 #369 white;
 	text-decoration: none;
 }
+#menu a:link, #menu a:visited {
+	color: #555555;
+	background-color: transparent;
+	display: block;
+	padding: 1em 0 0 10px;
+	text-decoration: none;
+	min-height: 40px;
+}
+#menu a:hover, #menu li.cur a:link, #menu li.cur a:visited {
+	color: #FFFFFF;
+}
 #content {
-	min-width: 500px;
+	min-width: 700px;
 	width: 70%;
 	padding: 15px 15px 15px 15px;
-	margin: 15px 15px 15px 120px;
+	margin-left: 16em;
 	background-color: #fff;
-	overflow: auto;
+	overflow: visible;
 }
 #text {
 	min-width: 500px;
