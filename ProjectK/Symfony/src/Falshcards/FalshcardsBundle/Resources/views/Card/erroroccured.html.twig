@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'FalshcardsBundle::base.html.twig' %}
 
 {% block content %}
@@ -11,3 +12,18 @@
 	{% endif %}
 </pre>
 {% endblock %}
+=======
+{% extends 'FalshcardsBundle::base.html.twig' %}
+
+{% block content %}
+<h1>Fehler aufgetreten</h1>
+<p>Folgender Text ist die produzierte log-Datei:</p>
+<pre style="color: red">
+	{% if errorlog|length == 0 %}
+		error.txt ist leer!
+	{% else %}
+		{{ errorlog }}
+	{% endif %}
+</pre>
+{% endblock %}
+>>>>>>> new_branch_name
